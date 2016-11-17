@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="small-2 medium-4 columns">
+
+        <div *ngFor="let user of users">
+            <h2 (click)="userInfo(user)" >{{ user.username }}</h2>
+            <input type="text" class="button" value="remove user" (click)="removeUser(user.id)">
+            <!--<input type="text" class="button" value="remove user" (click)="removeUser(user.id)">-->
+        </div>
+    </div>
+</div>
