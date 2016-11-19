@@ -19,4 +19,8 @@ export class AppComponent {
         this.users = this.users.filter((user)=>user.id != id);
     }
 
+    editUser(id:number){
+        this.users
+    }
+
 }

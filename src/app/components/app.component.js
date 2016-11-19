@@ -20,6 +20,9 @@ var AppComponent = (function () {
     AppComponent.prototype.removeUser = function (id) {
         this.users = this.users.filter(function (user) { return user.id != id; });
     };
+    AppComponent.prototype.editUser = function (id) {
+        this.users;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app',

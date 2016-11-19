@@ -14,7 +14,8 @@ module.exports = {
         ],
         vendorsCss: [
             'foundation-sites/dist/foundation.css',
-            'foundation-sites/dist/foundation-flex.css'
+            'foundation-sites/dist/foundation-flex.css',
+            'foundation-icons/foundation-icons.css'
         ],
         'styles': './src/styles/app.scss',
         'app': './src/main.ts'

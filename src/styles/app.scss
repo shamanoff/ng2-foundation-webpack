@@ -1,7 +1,91 @@
-$color: tomato;
+$primaryColor: tomato;
+$secColor: #ff9128;
 
 body{
-  background: $color;
-  color: white;
+  background: white;
 }
 
+.top-bar {
+  background-color: black;
+  color: white;
+  ul a {
+    color: white;
+  }
+}
+.top-bar-left ul {
+  background-color: transparent;
+
+}
+.top-bar-right ul {
+  background-color: transparent;
+  input{
+    background-color: #3c3e40;
+    border: 1px solid #7a7a7a;
+  }
+}
+
+.wrapper_person{
+  float: left;
+  width:50%;
+  height:auto;
+  border: 1px solid #efeded;
+  text-align: center;
+  padding:2rem;
+ /* h3{
+
+    font-size:1.5rem;
+    font-weight:800;
+    margin-top:8rem;
+    margin-bottom: .2rem;
+    position: relative;
+  }
+  p{
+
+
+    font-weight:100;
+
+    font-size:1rem;
+  }*/
+}
+
+.person_pic{
+  overflow: hidden;
+  //vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  width:14rem;
+  height:14rem;
+  margin: auto;
+  position: relative;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: gray;
+  -moz-border-radius: 7rem;
+  -webkit-border-radius: 7rem;
+  border-radius: 7rem;
+  border: 3px solid white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.2, 1.2);
+  }
+
+
+}
+//container person--------------
+//person 1----------------------
+.wrapper_person_1{
+  @extend .wrapper_person;
+  /*  background-image: url(../slice/corner_bottomL.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom right;*/
+}
+.pic_1 {
+  @extend .person_pic;
+  background-image: url(../img/pic_2.jpg);
+}
+
+
+.icons{
+  color: $secColor;
+}
