@@ -4,17 +4,17 @@
         <div class="wrapper_person_1" *ngFor="let user of users">
             <div class="pic_1">
             </div>
-            <h2 class="edit">{{ user.name }}</h2>
+            <h2 class="editOff">{{ user.name }}</h2>
             <!--<h2 (click)="userInfo(user)" >{{ user.name }}</h2>-->
 
-            <h4 class="edit"> {{ user.company.name }}</h4>
-            <p class="edit"><i class="fi-mail icons"></i> {{ user.email }}</p>
-            <p class="edit"><i class="fi-telephone icons"></i> {{ user.phone }}</p>
+            <h4 class="editOff"> {{ user.company.name }}</h4>
+            <p class="editOff"><i class="fi-mail icons"></i> {{ user.email }}</p>
+            <p class="editOff"><i class="fi-telephone icons"></i> {{ user.phone }}</p>
 
             <div >
                 <a class="fi-trash "  (click)="removeUser(user.id)"> Remove </a>
                 <span>   |   </span>
-                <a class="fi-pencil "  (click)="editUser(user.id)"> Edit</a>
+                <a class="fi-pencil "  (click)="editUser()"> Edit</a>
             </div>
 
         </div>
