@@ -1,0 +1,35 @@
+<div class="pic_1">
+</div>
+<div *ngIf="!isEditable">
+
+    <h2>{{ user.name }}</h2>
+
+    <h4> {{ user.company.name }}</h4>
+    <p><i class="fi-mail icons"></i> {{ user.email }}</p>
+    <p><i class="fi-telephone icons"></i> {{ user.phone }}</p>
+
+    <div >
+        <a class="fi-trash "  (click)="remove()"> Remove </a>
+
+
+    </div>
+    <a class="fi-pencil "  (click)="editUser()"> Edit</a>
+</div>
+
+<div *ngIf="isEditable">
+    <input type="text" ([ngModel])="user.name">
+    <input type="text" ([ngModel])="user.company.name">
+
+    <p><i class="fi-mail icons"></i> {{ user.email }}</p>
+    <p><i class="fi-telephone icons"></i> {{ user.phone }}</p>
+
+    <div >
+        <a class="fi-trash "  (click)="remove()"> Remove </a>
+
+
+    </div>
+    <a class="fi-pencil "  (click)="editUser()"> End Edit</a>
+</div>
+
+
+

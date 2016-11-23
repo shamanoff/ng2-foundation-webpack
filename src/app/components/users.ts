@@ -9,7 +9,9 @@ export class User{
   address:any;
   company:any;
 
+
 }
+
 export const users: User[] = [
   {
     "id": 1,

@@ -9,18 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var users_1 = require('./users');
+var users_ts_1 = require('./users.ts');
 var AppComponent = (function () {
     function AppComponent() {
-        this.users = users_1.users;
+        this.users = users_ts_1.users;
     }
-    AppComponent.prototype.userInfo = function (user) {
-        alert(user.website);
-    };
-    AppComponent.prototype.removeUser = function (id) {
-        this.users = this.users.filter(function (user) { return user.id != id; });
-    };
-    AppComponent.prototype.editUser = function () {
+    AppComponent.prototype.onRemove = function (user) {
+        this.users = this.users.filter(function (_user) { return _user.id != user.id; });
     };
     AppComponent = __decorate([
         core_1.Component({

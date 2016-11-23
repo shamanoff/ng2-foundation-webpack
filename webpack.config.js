@@ -73,7 +73,7 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.NoErrorsPlugin(),
+        // new webpack.NoErrorsPlugin(),
         new ExtractTextPlugin('[name].css' , {allChunks: true}),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'index.html'),
