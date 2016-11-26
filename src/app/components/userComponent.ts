@@ -1,6 +1,6 @@
 ///<reference path="../../../node_modules/@types/node/index.d.ts"/>
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {User} from './users';
+import {User} from '../models/users';
 
 @Component({
     selector: 'user-details',
@@ -14,9 +14,9 @@ export class UserComponent {
 
     @Input()user: User;
 
- /*   constructor() {
+    constructor() {
        console.log(this.user);
-    }*/
+    }
 
 
 
@@ -26,5 +26,16 @@ export class UserComponent {
 
     remove() {
         this.onRemove.emit(this.user);
+    }
+
+    nameChanged(input:HTMLInputElement, name:string){
+        if(name.length>5){
+            this.user.name = name;
+            input.style.border = '';
+
+        }else {
+            input.style.border = '1px solid red';
+        }
+        console.log(name);
     }
 }

@@ -12,6 +12,7 @@ export class User{
 
 }
 
+/*
 export const users: User[] = [
   {
     "id": 1,
@@ -244,3 +245,4 @@ export const users: User[] = [
     }
   }
 ]
+*/

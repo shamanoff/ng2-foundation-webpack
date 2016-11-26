@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var userComponent_1 = require('../components/userComponent');
 var app_component_1 = require('../components/app.component');
+var http_1 = require('@angular/http');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +21,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                http_1.HttpModule
             ],
             declarations: [app_component_1.AppComponent, userComponent_1.UserComponent],
             bootstrap: [app_component_1.AppComponent]

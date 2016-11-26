@@ -4,7 +4,9 @@
         <div class="wrapper_person_1" *ngFor="let user of users">
             <user-details [user]="user" (onRemove)="onRemove($event)"></user-details>
         </div>
-
+        <div>
+        <button type="button" (click)="saveUsers()">Save</button>
+        </div>
         <!--     <div *ngFor="let user of users">
 
 

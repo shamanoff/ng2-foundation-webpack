@@ -9,20 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var users_ts_1 = require('./users.ts');
+var userService_1 = require("../services/userService");
 var AppComponent = (function () {
-    function AppComponent() {
-        this.users = users_ts_1.users;
+    function AppComponent(user$) {
+        this.user$ = user$;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.user$.getUsers()
+            .then(function (users) {
+            _this.users = users;
+        })
+            .catch(function (error) {
+            console.log('error');
+        });
+    };
     AppComponent.prototype.onRemove = function (user) {
         this.users = this.users.filter(function (_user) { return _user.id != user.id; });
+    };
+    AppComponent.prototype.saveUsers = function () {
+        this.user$.saveUsers(this.users)
+            .then(function (result) {
+            window.location.href = window.location.origin;
+        })
+            .catch(function (error) {
+            console.log('error');
+        });
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app',
-            template: require('../views/app.component.html')
+            template: require('../views/app.component.html'),
+            providers: [userService_1.default]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [userService_1.default])
     ], AppComponent);
     return AppComponent;
 }());
