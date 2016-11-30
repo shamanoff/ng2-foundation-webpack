@@ -10,11 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var userService_1 = require("../services/userService");
-var AppComponent = (function () {
-    function AppComponent(user$) {
+var UserComponent = (function () {
+    function UserComponent(user$) {
         this.user$ = user$;
     }
-    AppComponent.prototype.ngOnInit = function () {
+    UserComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.user$.getUsers()
             .then(function (users) {
@@ -24,10 +24,10 @@ var AppComponent = (function () {
             console.log('error');
         });
     };
-    AppComponent.prototype.onRemove = function (user) {
+    UserComponent.prototype.onRemove = function (user) {
         this.users = this.users.filter(function (_user) { return _user.id != user.id; });
     };
-    AppComponent.prototype.saveUsers = function () {
+    UserComponent.prototype.saveUsers = function () {
         this.user$.saveUsers(this.users)
             .then(function (result) {
             window.location.href = window.location.origin;
@@ -36,15 +36,15 @@ var AppComponent = (function () {
             console.log('error');
         });
     };
-    AppComponent = __decorate([
+    UserComponent = __decorate([
         core_1.Component({
-            selector: 'app',
+            selector: 'users',
             template: require('../views/app.component.html'),
             providers: [userService_1.default]
         }), 
         __metadata('design:paramtypes', [userService_1.default])
-    ], AppComponent);
-    return AppComponent;
+    ], UserComponent);
+    return UserComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.UserComponent = UserComponent;
+//# sourceMappingURL=userComponent.js.map

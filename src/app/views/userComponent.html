@@ -1,5 +1,6 @@
 <div class="pic_1">
 </div>
+<button value="Profile" (click)="showProfile()">Profile</button>
 <div *ngIf="!isEditable">
 
     <h2>{{ user.name }}</h2>
@@ -30,6 +31,7 @@
 
     </div>
     <a class="fi-pencil "  (click)="editUser()"> End Edit</a>
+
 </div>
 
 

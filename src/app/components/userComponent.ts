@@ -1,41 +1,46 @@
 ///<reference path="../../../node_modules/@types/node/index.d.ts"/>
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {User} from '../models/users';
+import {Component, OnInit} from '@angular/core';
+import { User} from '../models/users.ts';
+import userService from "../services/userService";
+import {error} from "util";
 
 @Component({
-    selector: 'user-details',
-    template: require('../views/userComponent.html')
+    selector: 'users',
+    template: require('../views/app.component.html'),
+    providers: [userService]
     // templateUrl: 'app.component.html'
 })
-export class UserComponent {
-    public isEditable: boolean = false;
+export class UserComponent implements OnInit{
+    private users:User[];
 
-    @Output() onRemove = new EventEmitter<User>();
+    ngOnInit(){
+        this.user$.getUsers()
+            .then((users:User[])=>{
+            this.users = users;
+            })
+            .catch((error:any)=>{
+            console.log('error');
+            })
+    }
 
-    @Input()user: User;
+    constructor(private user$: userService) {
 
-    constructor() {
-       console.log(this.user);
+    }
+
+    onRemove(user:User) {
+        this.users = this.users.filter((_user)=>_user.id != user.id);
+    }
+
+    saveUsers(){
+        this.user$.saveUsers(this.users)
+            .then((result:boolean)=>{
+               window.location.href = window.location.origin;
+            })
+            .catch((error:any)=>{
+                console.log('error');
+            })
     }
 
 
 
-    editUser() {
-        this.isEditable = !this.isEditable;
-    }
-
-    remove() {
-        this.onRemove.emit(this.user);
-    }
-
-    nameChanged(input:HTMLInputElement, name:string){
-        if(name.length>5){
-            this.user.name = name;
-            input.style.border = '';
-
-        }else {
-            input.style.border = '1px solid red';
-        }
-        console.log(name);
-    }
 }
