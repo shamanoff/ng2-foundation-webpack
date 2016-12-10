@@ -10,13 +10,14 @@ module.exports = {
     entry: {
 
         vendors: [
-            'foundation-sites/dist/foundation.js'
+            'script!jquery',
+            'script!foundation-sites'
         ],
-        vendorsCss: [
+   /*     vendorsCss: [
             'foundation-sites/dist/foundation.css',
             'foundation-sites/dist/foundation-flex.css',
             'foundation-icons/foundation-icons.css'
-        ],
+        ],*/
         'styles': './src/styles/app.scss',
         'app': './src/main.ts'
     },
@@ -86,11 +87,11 @@ module.exports = {
             port: 3000,
             server: { baseDir: ['dist'] }
         }),
-        new webpack.ProvidePlugin({
+    /*    new webpack.ProvidePlugin({
             'jQuery': 'jquery',
             '$': 'jquery'
 
-        })
+        })*/
         // new webpack.optimize.DedupePlugin(),
         // new webpack.optimize.OccurenceOrderPlugin(),
         // new webpack.optimize.UglifyJsPlugin({
