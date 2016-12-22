@@ -1,0 +1,9 @@
+<!--<form (ngSubmit)="onSubmit($event)" #userform name="createUser-user">-->
+<form>
+    <input type="text"  id="username" #username placeholder="name" name="username" [(ngModel)]="user.name">
+    <input type="text"  id="email" #email placeholder="email" name="email" [(ngModel)]="user.email">
+    <input type="text" id="phone" #phone placeholder="phone" name="phone" [(ngModel)]="user.phone">
+
+    <input type="submit" class="button" value="submit" (click)="createUser()">
+    <!--<input type="submit" class="button" value="submit" (click)="createUser">-->
+</form>

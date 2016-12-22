@@ -8,6 +8,8 @@ import {routing}from '../routs/app.routs';
 import { MainComponent}from '../components/mainComponent';
 import {AppComponent} from "../components/appComponent";
 import {UserProfile} from "../components/userProfile";
+import UserService from "../services/userService";
+import {CreateUser} from "../components/createUser";
 
 @NgModule({
     imports: [
@@ -16,7 +18,11 @@ import {UserProfile} from "../components/userProfile";
         HttpModule,
         routing
     ],
-    declarations: [UserComponent, UserDetail, MainComponent, AppComponent, UserProfile],
+    providers:[
+        UserService,
+
+    ],
+    declarations: [UserComponent, UserDetail, MainComponent, AppComponent, UserProfile, CreateUser],
     bootstrap: [AppComponent]
 
 })

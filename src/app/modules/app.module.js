@@ -18,6 +18,8 @@ var app_routs_1 = require('../routs/app.routs');
 var mainComponent_1 = require('../components/mainComponent');
 var appComponent_1 = require("../components/appComponent");
 var userProfile_1 = require("../components/userProfile");
+var userService_1 = require("../services/userService");
+var createUser_1 = require("../components/createUser");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,7 +31,10 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 app_routs_1.routing
             ],
-            declarations: [userComponent_1.UserComponent, userDetail_1.UserDetail, mainComponent_1.MainComponent, appComponent_1.AppComponent, userProfile_1.UserProfile],
+            providers: [
+                userService_1.default,
+            ],
+            declarations: [userComponent_1.UserComponent, userDetail_1.UserDetail, mainComponent_1.MainComponent, appComponent_1.AppComponent, userProfile_1.UserProfile, createUser_1.CreateUser],
             bootstrap: [appComponent_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

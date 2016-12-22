@@ -1,6 +1,7 @@
 import 'core-js';
 import 'zone.js/dist/zone';
 import 'reflect-metadata';
+import $ from 'jquery';
 
 
 import 'foundation-sites/dist/foundation.css';

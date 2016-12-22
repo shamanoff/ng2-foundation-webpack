@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import { User} from '../models/users.ts';
 import userService from "../services/userService";
 import {error} from "util";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'users',
@@ -14,13 +15,10 @@ export class UserComponent implements OnInit{
     private users:User[];
 
     ngOnInit(){
-        this.user$.getUsers()
-            .then((users:User[])=>{
+        this.user$.getUsers().subscribe((users:Users[])=>{
             this.users = users;
-            })
-            .catch((error:any)=>{
-            console.log('error');
-            })
+            console.log(users);
+        })
     }
 
     constructor(private user$: userService) {
@@ -28,17 +26,19 @@ export class UserComponent implements OnInit{
     }
 
     onRemove(user:User) {
+/*
         this.users = this.users.filter((_user)=>_user.id != user.id);
+*/
     }
 
     saveUsers(){
-        this.user$.saveUsers(this.users)
+   /*     this.user$.saveUsers(this.users)
             .then((result:boolean)=>{
                window.location.href = window.location.origin;
             })
             .catch((error:any)=>{
                 console.log('error');
-            })
+            })*/
     }
 
 

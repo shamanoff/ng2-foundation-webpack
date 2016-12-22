@@ -6,57 +6,45 @@ import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/users';
 import {error} from "util";
+import 'rxjs/Rx';
 
 @Injectable()
-export default class userService {
-    private url: string = 'http://jsonplaceholder.typicode.com/users';
+export default class UserService {
+    // private url: string = 'https://team-bd0fe.firebaseio.com/';
 
     constructor(private http: Http) {
 
     }
 
-    getUsers(): Promise<User[]> {
-        return new Promise((resolve, reject) => {
+    addUser(user:User) {
+        const body = JSON.stringify(user);
+        const headers = new Headers({
+            'Content-Type':'application/json'
+        });
+     /*   const options = new RequestOptions({
+            headers:headers
+        });*/
+         return this.http.post('https://team-bd0fe.firebaseio.com/data.json', body, {headers:headers})
+             .map((data: Response) => data.json())
+             .catch(this.handleError);
 
-            this.http
-                .get(this.url)
-                .subscribe(
-                    (data: Response) => {
-                        let users: User[] = <User[]>data.json();
-                        resolve(users);
-                    },
-                    (error: any) => {
-                        reject(error);
-                    }
-                )
-        })
     }
 
- /*   saveUsers(users: User[]): Promise<boolean> {
-        return new Promise((resolve, reject) => {
-            setTimeout(()=>{
-                resolve(true)
-            },2000);
-        } )
-    }*/
-    saveUsers(users: User[]): Promise<boolean> {
+    private handleError(error: any){
+        console.log(error);
+        return Observable.throw(error.json());
+    }
 
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+    getUsers(){
+        return this.http.get('https://team-bd0fe.firebaseio.com/data.json')
+            .map((data:Response) =>{ let temp = data.json();
+            let users: User[]=[];
+            for(let user in temp){
 
-        return new Promise((resolve, reject) => {
-            this.http
-                .post(this.url, users, options)
-                .subscribe(
-                    (data: Response) => {
-                        let result: boolean = <boolean>data.json();
-                        resolve(users);
-                    },
-                    (error: any) => {
-                        reject(error);
-                    });
-
-        } )
+                users.push(temp[user]);
+            }return users;
+        })
+            .catch(this.handleError);
     }
 }
 

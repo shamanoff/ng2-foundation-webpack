@@ -16,25 +16,14 @@ var UserComponent = (function () {
     }
     UserComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.user$.getUsers()
-            .then(function (users) {
+        this.user$.getUsers().subscribe(function (users) {
             _this.users = users;
-        })
-            .catch(function (error) {
-            console.log('error');
+            console.log(users);
         });
     };
     UserComponent.prototype.onRemove = function (user) {
-        this.users = this.users.filter(function (_user) { return _user.id != user.id; });
     };
     UserComponent.prototype.saveUsers = function () {
-        this.user$.saveUsers(this.users)
-            .then(function (result) {
-            window.location.href = window.location.origin;
-        })
-            .catch(function (error) {
-            console.log('error');
-        });
     };
     UserComponent = __decorate([
         core_1.Component({

@@ -14,11 +14,9 @@ export class UserDetail {
     @Output() onRemove = new EventEmitter<User>();
 
     @Input()user: User;
-
     constructor(private router:Router) {
        console.log(this.user);
     }
-
 
 
     editUser() {
